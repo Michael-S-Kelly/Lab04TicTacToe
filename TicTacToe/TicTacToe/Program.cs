@@ -3,7 +3,7 @@ using TicTacToe.Classes;
 
 namespace TicTacToe
 {
-    class Program
+    public class Program
     {
         #region Main
         static void Main(string[] args)
@@ -36,23 +36,23 @@ namespace TicTacToe
                 Player playerTwo = new Player();
 
                 Console.Clear();
-                Console.WriteLine("\tPlayer One");
-                Console.WriteLine("\tPlease enter your name");
+                Console.WriteLine("Player One");
+                Console.WriteLine("Please enter your name");
                 playerOne.Name = Console.ReadLine();
                 playerOne.Marker = "X";
 
                 Console.Clear();
-                Console.WriteLine("\tPlayer Two");
-                Console.WriteLine("\tPlease enter your name");
+                Console.WriteLine("Player Two");
+                Console.WriteLine("Please enter your name");
                 playerTwo.Name = Console.ReadLine();
                 playerTwo.Marker = "O";
 
                 Console.Clear();
-                Console.WriteLine($"\tWelcome {playerOne.Name} and {playerTwo.Name}!");
+                Console.WriteLine($"Welcome {playerOne.Name} and {playerTwo.Name}!");
                 Console.WriteLine();
-                Console.WriteLine($"\t{playerOne.Name} will play {playerOne.Marker}'s.");
+                Console.WriteLine($"{playerOne.Name} will play {playerOne.Marker}'s.");
                 Console.WriteLine();
-                Console.WriteLine($"\t{playerTwo.Name} will play {playerTwo.Marker}'s.");
+                Console.WriteLine($"{playerTwo.Name} will play {playerTwo.Marker}'s.");
                 Console.WriteLine();
                 Console.WriteLine("Please press enter to start the game.");
                 Console.ReadLine();
@@ -60,7 +60,19 @@ namespace TicTacToe
                 Game game = new Game(playerOne, playerTwo);
                 game.Play();
 
-                return false;
+                Console.Clear();
+                Console.WriteLine("Would you like to play another game?");
+                Console.WriteLine("Please enter 'y' if you would like a new game, ");
+                Console.WriteLine("or just press enter if you would like to exit.");
+                string newGame = Console.ReadLine();
+                if (newGame.ToLower() == "y")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception genEX)
             {

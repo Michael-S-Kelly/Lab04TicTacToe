@@ -122,13 +122,28 @@ namespace TicTacToe.Classes
             // Given all the winning conditions, Determine the winning logic. 
             for (int i = 0; i < winners.Length; i++)
             {
-                Position p1 = Player.PositionForNumber(winners[i][0]);
-                Position p2 = Player.PositionForNumber(winners[i][1]);
-                Position p3 = Player.PositionForNumber(winners[i][2]);
+                Position pos1 = Player.PositionForNumber(winners[i][0]);
+                Position pos2 = Player.PositionForNumber(winners[i][1]);
+                Position pos3 = Player.PositionForNumber(winners[i][2]);
 
-                string a = Board.GameBoard[p1.Row, p1.Column];
-                string b = Board.GameBoard[p2.Row, p2.Column];
-                string c = Board.GameBoard[p3.Row, p3.Column];
+                string a = Board.GameBoard[pos1.Row, pos1.Column];
+                string b = Board.GameBoard[pos2.Row, pos2.Column];
+                string c = Board.GameBoard[pos3.Row, pos3.Column];
+
+                if (a == "X" && b == "X" && c == "X")
+                {
+                    Winner = PlayerOne;
+                    return true;
+                }
+                else if (a == "O" && b == "O" && c == "O")
+                {
+                    Winner = PlayerTwo;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
 
                 // TODO:  Determine a winner has been reached. 
                 // return true if a winner has been reached. 
