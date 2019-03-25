@@ -30,6 +30,54 @@ namespace TicTacToe.Classes
         /// <returns>Winner</returns>
         public Player Play()
         {
+            Console.Clear();
+            int turns = 0;
+            try
+            {
+                Console.Clear();
+                Board.DisplayBoard();
+                
+                while (turns < 9 && Winner == null)
+                {
+                    NextPlayer().TakeTurn(Board);
+                    if (CheckForWinner(Board))
+                    {
+                        Console.Clear();
+                        Board.DisplayBoard();
+                        Console.WriteLine($"Congradulations {Winner.Name}, you won!");
+                        Console.WriteLine("Please press any key to continue.");
+                        Console.ReadKey();
+                        return Winner;
+                    }
+                    else if (turns == 9 && Winner == null)
+                    {
+                        Console.Clear();
+                        Winner.Name = "Draw";
+                        Console.WriteLine("Sorry, there is no winner.");
+                        Console.WriteLine("The game ends in a draw.");
+                    }
+                    else
+                    {
+                        turns++;
+                        Console.Clear();
+                        Board.DisplayBoard();
+                        SwitchPlayer();
+                    }
+                    Console.Clear();
+                    Board.DisplayBoard();
+                    
+                }
+                
+                Console.ReadKey();
+                return Winner;
+            }
+            catch (Exception genEX)
+            {
+                Console.WriteLine("There was an error in the Play method of the Game Class.");
+                Console.WriteLine(genEX.Message);
+                Console.ReadLine();
+                throw;
+            }
 
             //TODO: Complete this method and utilize the rest of the class structure to play the game.
 
@@ -74,13 +122,28 @@ namespace TicTacToe.Classes
             // Given all the winning conditions, Determine the winning logic. 
             for (int i = 0; i < winners.Length; i++)
             {
-                Position p1 = Player.PositionForNumber(winners[i][0]);
-                Position p2 = Player.PositionForNumber(winners[i][1]);
-                Position p3 = Player.PositionForNumber(winners[i][2]);
+                Position pos1 = Player.PositionForNumber(winners[i][0]);
+                Position pos2 = Player.PositionForNumber(winners[i][1]);
+                Position pos3 = Player.PositionForNumber(winners[i][2]);
 
-                string a = Board.GameBoard[p1.Row, p1.Column];
-                string b = Board.GameBoard[p2.Row, p2.Column];
-                string c = Board.GameBoard[p3.Row, p3.Column];
+                string a = Board.GameBoard[pos1.Row, pos1.Column];
+                string b = Board.GameBoard[pos2.Row, pos2.Column];
+                string c = Board.GameBoard[pos3.Row, pos3.Column];
+
+                if (a == "X" && b == "X" && c == "X")
+                {
+                    Winner = PlayerOne;
+                    return true;
+                }
+                else if (a == "O" && b == "O" && c == "O")
+                {
+                    Winner = PlayerTwo;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
 
                 // TODO:  Determine a winner has been reached. 
                 // return true if a winner has been reached. 
