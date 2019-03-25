@@ -48,10 +48,10 @@ Then select and open ```TicTacToe.sln```
 ### Collaborators
 
 ### Contributors
-####Phil Werner
+#### Phil Werner
 
 
 ### Other Resources
-
+#### Microsoft Visual C# Step by Step Ninth Edition
 ------------------------------
 For more information on Markdown: https://www.markdownguide.org/cheat-sheet
