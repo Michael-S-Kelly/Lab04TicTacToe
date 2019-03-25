@@ -30,6 +30,21 @@ namespace TicTacToe.Classes
         /// <returns>Winner</returns>
         public Player Play()
         {
+            Console.Clear();
+            int turns = 0;
+            try
+            {
+                while (turns < 9)
+                {
+                    Board.DisplayBoard();
+                }
+            }
+            catch (Exception genEX)
+            {
+                Console.WriteLine("There was an error in the Play method of the Game Class.");
+                Console.WriteLine(genEX.Message);
+                Console.ReadLine();
+            }
 
             //TODO: Complete this method and utilize the rest of the class structure to play the game.
 

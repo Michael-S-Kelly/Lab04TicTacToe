@@ -24,7 +24,10 @@ namespace TicTacToe
             }
         }
         #endregion
-
+        /// <summary>
+        /// This method sets up the game to be played
+        /// </summary>
+        /// <returns>This bool will determine if there will be a new game or exit after a game is played</returns>
         static bool PlayGame()
         {
             try

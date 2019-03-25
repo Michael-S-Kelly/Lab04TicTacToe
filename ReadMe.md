@@ -53,5 +53,7 @@ Then select and open ```TicTacToe.sln```
 
 ### Other Resources
 #### Microsoft Visual C# Step by Step Ninth Edition
+#### C# 7.0 in a Nutshell
+#### C# Pocket Reference
 ------------------------------
 For more information on Markdown: https://www.markdownguide.org/cheat-sheet
