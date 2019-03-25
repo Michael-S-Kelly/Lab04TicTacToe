@@ -23,12 +23,13 @@ namespace TicTacToe.Classes
             {
                 for (int i = 0; i < GameBoard.GetLength(0); i++)
                 {
-                    Console.WriteLine("--------");
+                    Console.WriteLine("---------------");
                     for (int j = 0; j < GameBoard.GetLength(1); j++)
                     {
                         Console.Write($"| {GameBoard[i, j]} |");
                     }
-                    Console.WriteLine("--------");
+                    Console.WriteLine();
+                    Console.WriteLine("---------------");
                 }
             }
             catch (Exception genEX)

@@ -34,16 +34,49 @@ namespace TicTacToe.Classes
             int turns = 0;
             try
             {
-                while (turns < 9)
+                Console.Clear();
+                Board.DisplayBoard();
+                
+                while (turns < 9 && Winner == null)
                 {
+                    NextPlayer().TakeTurn(Board);
+                    if (CheckForWinner(Board))
+                    {
+                        Console.Clear();
+                        Board.DisplayBoard();
+                        Console.WriteLine($"Congradulations {Winner.Name}, you won!");
+                        Console.WriteLine("Please press any key to continue.");
+                        Console.ReadKey();
+                        return Winner;
+                    }
+                    else if (turns == 9 && Winner == null)
+                    {
+                        Console.Clear();
+                        Winner.Name = "Draw";
+                        Console.WriteLine("Sorry, there is no winner.");
+                        Console.WriteLine("The game ends in a draw.");
+                    }
+                    else
+                    {
+                        turns++;
+                        Console.Clear();
+                        Board.DisplayBoard();
+                        SwitchPlayer();
+                    }
+                    Console.Clear();
                     Board.DisplayBoard();
+                    
                 }
+                
+                Console.ReadKey();
+                return Winner;
             }
             catch (Exception genEX)
             {
                 Console.WriteLine("There was an error in the Play method of the Game Class.");
                 Console.WriteLine(genEX.Message);
                 Console.ReadLine();
+                throw;
             }
 
             //TODO: Complete this method and utilize the rest of the class structure to play the game.
