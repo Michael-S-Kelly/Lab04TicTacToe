@@ -41,7 +41,7 @@ Then select and open ```TicTacToe.sln```
 ##### Player 2's Turn
 ![Image 1](Assets/GamePlayerTwo.PNG)
 ##### Player 1's Turn
-![Image 1](Assets/GamePlayerTwo.PNG)
+![Image 1](Assets/GamePlayerOne.PNG)
 ##### Restart or End Game
 ![Image 1](Assets/NewGame.PNG)
 
@@ -56,6 +56,7 @@ Then select and open ```TicTacToe.sln```
 ## Collaborators, Contributors, and Other Resources used
 
 ### Collaborators
+Jimmy Chang
 
 ### Contributors
 

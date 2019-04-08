@@ -40,12 +40,14 @@ namespace TicTacToe
                 Console.WriteLine("Please enter your name");
                 playerOne.Name = Console.ReadLine();
                 playerOne.Marker = "X";
+                playerOne.IsTurn = true;
 
                 Console.Clear();
                 Console.WriteLine("Player Two");
                 Console.WriteLine("Please enter your name");
                 playerTwo.Name = Console.ReadLine();
                 playerTwo.Marker = "O";
+                playerTwo.IsTurn = false;
 
                 Console.Clear();
                 Console.WriteLine($"Welcome {playerOne.Name} and {playerTwo.Name}!");
